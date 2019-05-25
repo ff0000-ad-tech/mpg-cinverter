@@ -4,7 +4,7 @@ body {
 	color: white;
 }
 
-#content-holder {
+.content-holder {
 	background: #450000;
 	display: flex;
 	/* align-items: flex-start; */
@@ -13,6 +13,10 @@ body {
 #form-holder {
 	background: #004500;
 	min-width: 325px;
+}
+
+form {
+	padding: 1em 0;
 }
 
 #preview-holder {
@@ -28,12 +32,16 @@ ul {
 }
 
 .preview-content {
-	background-color: aqua;
+	background-color: #4544cd;
 	border: 2px solid #f00;
 	margin: 5px;
 }
 
-input[type='text'] {
+input {
+	display: block;
+}
+
+input[type='number'] {
 	width: 30px;
 }
 

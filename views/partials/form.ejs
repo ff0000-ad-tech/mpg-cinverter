@@ -1,14 +1,5 @@
-<form method="POST" action="/upload" id="upload-form" encType="multipart/form-data">
-    <ul>
-        <li>
-            <label>Source Video</label>
-            <input type="file" name="videoSource" required /> 
-        </li>
-        <li>
-            <label>Video Quality</label>
-            <input type="text" name="videoQuality" required />
-            <div id="quality-text">0 - 100</div>
-        </li>
-    </ul>
-	<button type="submit">Submit</button>
+<form method="POST" action="/upload" encType="multipart/form-data">
+<h2>Source Video</h2>
+<input type="file" name="videoSource" required />
+<button type="submit">Submit</button>
 </form>
