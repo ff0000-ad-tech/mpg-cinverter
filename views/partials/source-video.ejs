@@ -1,5 +1,7 @@
-<% if (src) { %>
-    <video controls>
-        <source src="<%= src %>" type="<%= mimeType %>">
-    </video>
+<% if (encodes) { 
+    encodes.forEach(item => { %>
+        <video controls>
+            <source src="<%= item.url %>" type="<%= mimeType %>">
+        </video>
+    <% }) %>
 <% } %>

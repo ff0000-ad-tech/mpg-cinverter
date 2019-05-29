@@ -1,7 +1,8 @@
 const ffmpeg = require('fluent-ffmpeg')
 
-function encodeMPG(res) {
+function encodeMPG(videoSource, videoQuality) {
 	return new Promise((resolve, reject) => {
+		console.log('encodeMPG()')
 		// res.contentType('audio/mp3')
 		// res.attachment('myfile.mp3')
 		// var pathToAudio = 'https://dl.dropbox.com/s/pc7qp4wrf46t9op/test-clip.webm?dl=0'
@@ -19,7 +20,11 @@ function encodeMPG(res) {
 		// 		res,
 		// 		{ end: true }
 		// 	)
-		resolve('dude' + Math.random())
+
+		resolve({
+			url: videoSource.tempFilePath,
+			q: videoQuality
+		})
 	})
 }
 
