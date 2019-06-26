@@ -1,29 +1,28 @@
 const ffmpeg = require('fluent-ffmpeg')
+const fs = require('fs')
 
 function encodeMPG(videoSource, videoQuality) {
 	return new Promise((resolve, reject) => {
 		console.log('encodeMPG()')
-		// res.contentType('audio/mp3')
-		// res.attachment('myfile.mp3')
-		// var pathToAudio = 'https://dl.dropbox.com/s/pc7qp4wrf46t9op/test-clip.webm?dl=0'
-		// ffmpeg(pathToAudio)
-		// 	.toFormat('mp3')
-		// 	.on('end', function(err) {
-		// 		console.log('done!')
-		// 		resolve()
+		// var outStream = fs.createWriteStream('/public/tmp/output.mp4')
+		// ffmpeg({ source: videoSource.tempFilePath })
+		// 	.on('end', err => {
+		// 		console.log('done!', outStream)
+		// 		resolve({
+		// 			url: videoSource.tempFilePath,
+		// 			q: videoQuality
+		// 		})
 		// 	})
-		// 	.on('error', function(err) {
-		// 		console.log('an error happened: ' + err.message)
+		// 	.on('error', err => {
+		// 		console.log('err:', err.message)
 		// 		reject(err)
 		// 	})
-		// 	.pipe(
-		// 		res,
-		// 		{ end: true }
-		// 	)
+		// 	// .writeToStream(outStream, { end: true })
+		// 	.saveToFile(__dirname + '/tmp/output.mp4')
 
 		resolve({
 			url: videoSource.tempFilePath,
-			q: videoQuality
+			videoQuality: videoQuality
 		})
 	})
 }

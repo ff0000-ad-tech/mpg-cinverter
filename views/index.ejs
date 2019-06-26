@@ -3,6 +3,7 @@
 	<head>
 		<title>MPG Converter</title>
 		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<script src="./@ff0000-ad-tech/ad-video/lib/mpg/MpegPlugin.min.js"></script>
 	</head>
 
 	<body>
@@ -10,20 +11,23 @@
 			<h1>MPG CONVERTER</h1>
             <p>"Auto-play" video solution for Android OS<p>	
 		</div>
+		<hr>
         <div class="content-holder">
-            <div id="form-holder">
-                <% include partials/form %>
-            </div>
-            <div id="preview-holder">
-				
+            <div class="form-holder">
+                <% include partials/form-upload %>
+            </div>            
+            <div id="videos-holder">
+				<% include partials/video-source %>
             </div>
 		</div>
+		<hr>
 		<div class="content-holder">
-            <div id="form-holder">
-                <% include partials/form-quality %>
+            <div class="form-holder">
+				<% include partials/form-quality %>
             </div>
-            <div id="preview-holder">
-				<% include partials/source-video %>
+            
+            <div id="videos-holder">
+				<% include partials/mpg-encodes %>
             </div>
 		</div>
 	</body>

@@ -17,6 +17,7 @@
 	},
 	"homepage": "https://github.com/ff0000-ad-tech/mpg-converter#readme",
 	"dependencies": {
+		"@ff0000-ad-tech/ad-video": "^2.0.2",
 		"body-parser": "^1.19.0",
 		"cors": "^2.8.5",
 		"ejs": "^2.6.1",
@@ -28,6 +29,7 @@
 		"nodemon": "^1.19.0",
 		"path": "^0.12.7",
 		"socket.io": "^2.2.0",
-		"stream": "0.0.2"
+		"stream": "0.0.2",
+		"window": "^4.2.6"
 	}
 }

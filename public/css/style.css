@@ -5,24 +5,14 @@ body {
 }
 
 .content-holder {
-	background: #450000;
+	/* background: #454545; */
 	display: flex;
 	/* align-items: flex-start; */
 }
 
-#form-holder {
-	background: #004500;
-	min-width: 325px;
-}
-
-form {
-	padding: 1em 0;
-}
-
-#preview-holder {
-	display: flex;
-	flex-wrap: wrap;
-	flex-shrink: 1;
+.form-holder {
+	/* background: #004500; */
+	min-width: 240px;
 }
 
 ul {
@@ -31,18 +21,29 @@ ul {
 	padding: 0;
 }
 
+h2 {
+	margin-top: 0;
+}
+
 .preview-content {
 	background-color: #4544cd;
 	border: 2px solid #f00;
 	margin: 5px;
 }
 
-input {
+input,
+label,
+button {
 	display: block;
+}
+
+button {
+	margin: 1em 0;
 }
 
 input[type='number'] {
 	width: 30px;
+	display: inline-block;
 }
 
 #quality-text {
