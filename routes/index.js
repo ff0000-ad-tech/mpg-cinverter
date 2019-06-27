@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
 		videoSource: req.session.videoSource || null,
 		encodes: req.session.encodes || null
 	})
+	console.log('AFTER render', res)
 })
 
 router.post('/upload', (req, res) => {
