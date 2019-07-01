@@ -1,7 +1,7 @@
 import React from 'react'
 
-function VideoSourcePreview(props) {
-	console.log('VideoSourcePlayer', props)
+function VideoSourcePlayer(props) {
+	console.log(':: VideoSourcePlayer ::', props)
 
 	// checks if there is a File
 	if (typeof props.src.name == 'string') {
@@ -23,4 +23,4 @@ function VideoSourcePreview(props) {
 	}
 }
 
-export default VideoSourcePreview
+export default VideoSourcePlayer

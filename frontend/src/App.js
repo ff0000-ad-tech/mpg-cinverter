@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from 'react'
 import FormUpload from './components/FormUpload'
 import FormQuality from './components/FormQuality'
-import VideoSourcePreview from './components/VideoSourcePreview'
+import VideoSourcePlayer from './components/VideoSourcePlayer'
+import EncodePlayer from './components/EncodePlayer'
 
 function App() {
 	const [videoSource, setVideoSource] = useState({})
+	const [encodes, setEncodes] = useState([])
 
 	useEffect(() => {
 		console.log('App useEffect()!')
-		// fetch('/users')
-		// 	.then(res => res.json())
-		// 	.then(parsedUsers => setUsers(parsedUsers))
-	}, [])
+		console.log('encodes:', encodes)
+	}, [encodes])
 
-	const handleUpload = obj => {
-		console.log('handleUpload():', obj)
+	const handleUploadComplete = obj => {
+		console.log('handleUploadComplete():', obj)
 		setVideoSource(obj)
+	}
+
+	const handleProcessComplete = obj => {
+		console.log('handleProcessComplete():', obj)
+		setEncodes(obj)
 	}
 
 	return (
@@ -26,15 +31,19 @@ function App() {
 			</div>
 			<hr />
 			<div className="content-holder">
-				<FormUpload onComplete={handleUpload} />
+				<FormUpload onComplete={handleUploadComplete} />
 				<div id="videos-holder">
-					<VideoSourcePreview src={videoSource} />
+					<VideoSourcePlayer src={videoSource} />
 				</div>
 			</div>
 			<hr />
 			<div className="content-holder">
-				<FormQuality />
-				<div id="videos-holder" />
+				<FormQuality onComplete={handleProcessComplete} />
+				<div id="videos-holder">
+					{encodes.map((single, i) => (
+						<EncodePlayer data={single} key={'encode' + i} />
+					))}
+				</div>
 			</div>
 		</div>
 	)

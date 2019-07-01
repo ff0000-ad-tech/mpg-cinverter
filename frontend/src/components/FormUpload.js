@@ -1,10 +1,8 @@
 import React from 'react'
 
 function FormUpload(props) {
-	console.log('FormUpload', props)
+	console.log(':: FormUpload ::', props)
 	function handleInput(event) {
-		console.log(event)
-		console.warn('SUBMIT')
 		const videoSource = event.target.files[0]
 		let formData = new FormData()
 		formData.append('videoSource', videoSource)
@@ -12,8 +10,8 @@ function FormUpload(props) {
 		fetch('/upload', {
 			method: 'POST',
 			body: formData
-		}).then(val => {
-			console.log('complete!', val)
+		}).then(res => {
+			console.log('FormUpload complete!', res, res.json())
 			props.onComplete(videoSource)
 		})
 	}
