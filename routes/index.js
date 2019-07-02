@@ -19,30 +19,23 @@ router.post('/process', (req, res) => {
 })
 
 router.get('/download', (req, res) => {
-	console.log('/download query:', req.query)
+	// console.log('/download query:', req.query)
 
-	// Check if the right request is coming through for the file type
 	return (
 		new Promise((resolve, reject) => {
+			// Check if the right request is coming through for the file type
 			if (req.query.file) {
-				return resolve(req.query.file)
+				// Validate if the files exists
+				const filePath = `./public/tmp/${req.query.file}`
+				if (fs.existsSync(filePath)) {
+					return resolve(filePath)
+				}
+				return reject(`File '${req.query.file}' was not found.`)
 			}
 			return reject(`Please provide a file`)
 		})
-			// Validate if the files exists
-			.then(file => {
-				// console.log('file:', file)
-				return new Promise((resolve, reject) => {
-					const filePath = `./public/tmp/${file}`
-					if (fs.existsSync(filePath)) {
-						return resolve(filePath)
-					}
-					return reject(`File '${file}' was not found.`)
-				})
-			})
 			// Return the file to download
 			.then(filePath => {
-				// console.log('filePath:', filePath)
 				res.download(filePath)
 			})
 			// Catches errors and displays them

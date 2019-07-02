@@ -9,6 +9,7 @@ function EncodePlayer(props) {
 
 	useEffect(() => {
 		console.log('EncodePlayer useEffect()!')
+
 		if (playerRef.current === null) {
 			playerRef.current = new MpegPlugin({
 				source: props.data.stream.path,
@@ -30,10 +31,8 @@ function EncodePlayer(props) {
 
 	function handleDownload(event) {
 		const fileName = props.data.fileName
-		console.log('handleDownload()', event)
-		fetch(`/download?file=${fileName}`, {
-			method: 'GET'
-		})
+		// console.log('handleDownload()', event)
+		fetch(`/download?file=${fileName}`, { method: 'GET' })
 			.then(response => response.blob())
 			.then(blob => {
 				const url = window.URL.createObjectURL(new Blob([blob]))

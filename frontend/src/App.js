@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import FormUpload from './components/FormUpload'
 import FormQuality from './components/FormQuality'
 import VideoSourcePlayer from './components/VideoSourcePlayer'
@@ -7,11 +7,6 @@ import EncodePlayer from './components/EncodePlayer'
 function App() {
 	const [videoSource, setVideoSource] = useState({})
 	const [encodes, setEncodes] = useState([])
-
-	useEffect(() => {
-		console.log('App useEffect()!')
-		console.log('encodes:', encodes)
-	}, [encodes])
 
 	const handleUploadComplete = obj => {
 		console.log('handleUploadComplete():', obj)
@@ -27,7 +22,7 @@ function App() {
 		<div>
 			<div id="header">
 				<h1>MPG CONVERTER</h1>
-				<p>"Auto-play" video solution for Android OS</p>
+				<p>"Auto-play" video solution for Android OS & Alpha Video Masking</p>
 			</div>
 			<hr />
 			<div className="content-holder">
