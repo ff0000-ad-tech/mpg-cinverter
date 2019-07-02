@@ -7,15 +7,15 @@ function VideoSourcePlayer(props) {
 	if (typeof props.src.name == 'string') {
 		const url = URL.createObjectURL(props.src)
 		return (
-			<div>
+			<div className="player-content">
 				<video controls>
 					<source src={url} type={props.src.mimetype} />
 				</video>
-				<p>
+				<div className="player-details">
 					{props.src.name}
 					<br />
 					{Math.round(props.src.size / 1000) + 'Kb'}
-				</p>
+				</div>
 			</div>
 		)
 	} else {

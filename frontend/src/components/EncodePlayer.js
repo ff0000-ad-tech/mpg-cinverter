@@ -9,8 +9,6 @@ function EncodePlayer(props) {
 
 	useEffect(() => {
 		console.log('EncodePlayer useEffect()!')
-		console.log('\t > holderRef:', holderRef)
-		console.log('addPlayer()', holderRef)
 		if (playerRef.current === null) {
 			playerRef.current = new MpegPlugin({
 				source: props.data.stream.path,
@@ -22,20 +20,34 @@ function EncodePlayer(props) {
 				}
 			})
 			playerRef.current.canvas.style.position = 'relative'
-			// console.log('player:', player.canvas)
 		}
 	}, [holderRef, props])
 
+	function handleReplay(event) {
+		playerRef.current.seek(0)
+		playerRef.current.play()
+	}
+
+	function handleDownload(event) {
+		//
+	}
+
 	return (
-		<div>
+		<div className="player-content">
 			<div ref={holderRef} />
 
-			<p>
+			<div className="player-details">
 				{props.data.fileName}
 				<br />
 				QUALITY: {props.data.videoQuality}
 				<br />
-			</p>
+				<button className="left" onClick={handleReplay}>
+					Replay
+				</button>
+				<button className="right" onClick={handleDownload}>
+					Download
+				</button>
+			</div>
 		</div>
 	)
 }

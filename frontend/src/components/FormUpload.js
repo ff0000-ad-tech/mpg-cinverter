@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 function FormUpload(props) {
 	console.log(':: FormUpload ::', props)
+
+	const formRef = useRef(null)
+
 	function handleInput(event) {
 		const videoSource = event.target.files[0]
 		let formData = new FormData()
@@ -13,11 +16,12 @@ function FormUpload(props) {
 		}).then(res => {
 			console.log('FormUpload complete!', res, res.json())
 			props.onComplete(videoSource)
+			formRef.current.reset()
 		})
 	}
 
 	return (
-		<form>
+		<form ref={formRef}>
 			<h2>Source Video</h2>
 			<input type="file" name="videoSource" id="uploadFormInput" onInput={handleInput} />
 		</form>

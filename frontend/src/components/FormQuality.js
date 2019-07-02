@@ -29,16 +29,22 @@ function FormQuality(props) {
 			})
 	}
 
-	// determine if button should be disabled
-	const btn = <button type="submit">Generate</button>
-
 	return (
 		<form onSubmit={handleSubmit} id="quality-form" ref={formRef}>
 			<h2>Create MPG</h2>
 			<label>Video Quality</label>
-			<input type="number" name="videoQuality" required onChange={handleChange} />
+			<input
+				type="number"
+				min="1"
+				max="100"
+				size="1"
+				maxLength="3"
+				name="videoQuality"
+				required
+				onChange={handleChange}
+			/>
 			<div id="quality-text">0 - 100</div>
-			{btn}
+			<button type="submit">Generate</button>
 		</form>
 	)
 }

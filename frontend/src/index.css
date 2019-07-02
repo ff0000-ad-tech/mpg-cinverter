@@ -11,7 +11,7 @@ body {
 }
 
 form {
-	background: #004500;
+	/* background: #004500; */
 	min-width: 240px;
 }
 
@@ -25,10 +25,14 @@ h2 {
 	margin-top: 0;
 }
 
-.preview-content {
-	background-color: #4544cd;
-	border: 2px solid #f00;
-	margin: 5px;
+.player-content {
+	background-color: #0c0c0c;
+	display: inline-block;
+	padding: 5px;
+	margin: 0 10px 10px 0;
+}
+.player-details {
+	margin: 1em;
 }
 
 input,
@@ -37,16 +41,26 @@ button {
 	display: block;
 }
 
+button.left {
+	float: left;
+}
+
+button.right {
+	float: right;
+}
+
 button {
 	margin: 1em 0;
 }
 
 input[type='number'] {
-	width: 30px;
+	width: 36px;
 	display: inline-block;
+	margin-top: 0.5em;
 }
 
 #quality-text {
 	font-style: italic;
 	display: inline-block;
+	margin-left: 0.5em;
 }

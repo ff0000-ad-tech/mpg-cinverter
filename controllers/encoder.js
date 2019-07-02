@@ -29,6 +29,7 @@ function encodeMPG(videoSource, videoQuality) {
 				.on('end', args => {
 					console.log('done!', args)
 
+					// TODO: get file size of encoded video to display
 					// const stat = fs.statSync(stream)
 					// console.log('stat:', stat)
 

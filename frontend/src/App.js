@@ -36,15 +36,19 @@ function App() {
 					<VideoSourcePlayer src={videoSource} />
 				</div>
 			</div>
-			<hr />
-			<div className="content-holder">
-				<FormQuality onComplete={handleProcessComplete} />
-				<div id="videos-holder">
-					{encodes.map((single, i) => (
-						<EncodePlayer data={single} key={'encode' + i} />
-					))}
+			{typeof videoSource.name == 'string' && (
+				<div>
+					<hr />
+					<div className="content-holder">
+						<FormQuality onComplete={handleProcessComplete} />
+						<div id="videos-holder">
+							{encodes.map((single, i) => (
+								<EncodePlayer data={single} key={'encode' + i} />
+							))}
+						</div>
+					</div>
 				</div>
-			</div>
+			)}
 		</div>
 	)
 }
