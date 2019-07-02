@@ -23,13 +23,27 @@ function EncodePlayer(props) {
 		}
 	}, [holderRef, props])
 
-	function handleReplay(event) {
+	function handleReplay() {
 		playerRef.current.seek(0)
 		playerRef.current.play()
 	}
 
 	function handleDownload(event) {
-		//
+		const fileName = props.data.fileName
+		console.log('handleDownload()', event)
+		fetch(`/download?file=${fileName}`, {
+			method: 'GET'
+		})
+			.then(response => response.blob())
+			.then(blob => {
+				const url = window.URL.createObjectURL(new Blob([blob]))
+				const link = document.createElement('a')
+				link.href = url
+				link.setAttribute('download', fileName)
+				document.body.appendChild(link)
+				link.click()
+				link.parentNode.removeChild(link)
+			})
 	}
 
 	return (

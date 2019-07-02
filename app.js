@@ -8,10 +8,13 @@ const fileUpload = require('express-fileupload')
 const router = require('./routes/index')
 const http = require('http')
 const tempFiles = require('./controllers/tempFiles')
+const cors = require('cors')
 
 // View Engine
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
+
+app.use(cors())
 
 // Routes
 app.use('/', express.static(path.join(__dirname, 'public')))
