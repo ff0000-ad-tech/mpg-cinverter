@@ -33,8 +33,6 @@ function encodeMPG(videoSource, videoQuality) {
 					// const stat = fs.statSync(stream)
 					// console.log('stat:', stat)
 
-					// ffmpeg.ffprobe(stream, (err2, metadata2) => {
-					// console.log('2:', metadata2)
 					resolve({
 						stream,
 						videoQuality,
@@ -42,7 +40,6 @@ function encodeMPG(videoSource, videoQuality) {
 						height: details.height,
 						fileName
 					})
-					// })
 				})
 				.on('error', err => {
 					console.log('err:', err.message)
