@@ -61,4 +61,7 @@ typings/
 .next
 
 .DS_Store
-public/tmp/*
+public/tmp/*.mpg
+public/tmp/*.mpeg
+public/tmp/*.mp4
+public/tmp/tmp*
